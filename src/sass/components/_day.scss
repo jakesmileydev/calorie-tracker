@@ -1,0 +1,358 @@
+div.day-body {
+	// fix that pesky footer
+	height: auto;
+}
+.day {
+	display: flex;
+	margin: 0 auto;
+	max-width: 50rem;
+}
+
+.container {
+	width: 100%;
+	margin: 0 1rem;
+	background-color: $color-background__day;
+	box-shadow: $box-shadow__main;
+	// padding: 0 1rem;
+	border-radius: $border-radius;
+}
+
+.calendar {
+	& .calendar-banner {
+		margin: 1rem auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		& .calendar-banner__month {
+			font-size: 1.25rem;
+		}
+		& .calendar-banner__icon {
+			font-size: 1.8rem;
+			&:hover {
+				color: $color-stripe__purple;
+				cursor: pointer;
+			}
+		}
+	}
+	& .calendar__current-week__day {
+		padding-top: 1rem;
+		&.selected {
+			border-bottom: 4px solid $color-stripe__purple;
+		}
+	}
+	& .calendar__current-week {
+		margin: 0 auto;
+		margin-bottom: 2rem;
+		display: flex;
+		display: none;
+
+		justify-content: space-between;
+	}
+	& .day__number {
+		font-size: 1.2rem;
+		padding: 1rem 1rem 0.6rem 1rem;
+		text-align: center;
+	}
+	& .day__letter {
+		font-size: $font__small;
+
+		text-align: center;
+	}
+}
+
+.summary {
+	// display: grid;
+	// grid-template-columns: 1fr 1.6fr;
+	// justify-items: center;
+
+	margin-bottom: 1rem;
+	& h2 {
+		justify-self: flex-start;
+		grid-column: 1 / 4;
+		margin-bottom: 1rem;
+	}
+	& svg {
+		transform: rotate(90deg);
+		margin-bottom: 2rem;
+	}
+	/////////////////////////////
+	/////////////////////////////
+	// Calories
+	& .summary__calories {
+		border-radius: $border-radius;
+		padding: 1rem;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		& p {
+			color: $color-text__light;
+			text-align: center;
+			margin-bottom: 0.2rem;
+		}
+		& .summary__calories__remaining {
+			font-size: $font__large;
+			& span {
+				color: $color-stripe__purple;
+			}
+		}
+	}
+	/////////////////////////////
+	/////////////////////////////
+	// Macros
+	& .summary__macros {
+		border-radius: $border-radius;
+		padding: 1rem;
+		margin-top: 1rem;
+		margin: 1rem auto 0 auto;
+		width: 90%;
+		padding: 1rem;
+
+		& h2 {
+			text-align: center;
+		}
+	}
+	// graph
+	& .graph-row {
+		display: flex;
+		margin-bottom: 1rem;
+		align-items: center;
+		& div:first-child {
+			min-width: 4rem;
+			padding-right: 1rem;
+		}
+	}
+	& .graph-bar__protein {
+		width: 50%;
+		height: 1.6rem;
+		background-color: $color-stripe__purple;
+		transform: skew(-12deg);
+	}
+	& .graph-bar__carbs {
+		width: 20%;
+		height: 1.6rem;
+		background-color: $color-stripe__blue;
+		transform: skew(-12deg);
+	}
+	& .graph-bar__fat {
+		width: 30%;
+		height: 1.6rem;
+		background-color: $color-stripe__overlap;
+		transform: skew(-12deg);
+	}
+	// legend
+	& .macros-legend {
+		display: flex;
+		justify-content: space-around;
+		margin-top: 1.6rem;
+	}
+	& .legend-data {
+		& div {
+			width: 4rem;
+			height: 4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+		}
+		& p {
+			text-align: center;
+			margin-top: 0.25rem;
+		}
+	}
+	& .legend-data__protein {
+		& div {
+			border: 6px solid $color-stripe__purple;
+		}
+	}
+	& .legend-data__carbs {
+		& div {
+			border: 6px solid $color-stripe__blue;
+		}
+	}
+	& .legend-data__fat {
+		& div {
+			border: 6px solid $color-stripe__overlap;
+		}
+	}
+}
+/////////////////////////////
+/////////////////////////////
+// Add food
+.add-food {
+	padding: 1rem;
+	border-radius: $border-radius;
+	& h2 {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	& .search-bar {
+		display: flex;
+		box-shadow: none;
+		flex-direction: row;
+		align-items: center;
+		padding: 0;
+		margin: 0;
+		box-shadow: $box-shadow__input;
+		border-radius: $border-radius;
+		&:focus-within {
+			box-shadow: $box-shadow__input-active;
+		}
+		// Search icon
+		& span {
+			border-radius: $border-radius;
+
+			font-size: 1.4rem;
+			padding: 0.8rem 0.4rem;
+			background-color: white;
+		}
+		& input {
+			// border-radius: 0;
+			padding-left: 0;
+			outline: none;
+			width: 100%;
+			font-size: 1.2rem;
+			margin: 0;
+			&:focus {
+				box-shadow: none;
+			}
+		}
+	}
+	& .search-results {
+		& li {
+			display: grid;
+			grid-template-columns: 1.5fr 1fr;
+			background-color: white;
+			border-radius: $border-radius;
+			margin-top: 0.5rem;
+			padding: 1rem;
+			&:hover,
+			&:active {
+				box-shadow: $box-shadow__input-active;
+				cursor: pointer;
+			}
+			& & .search-result__name {
+				font-weight: 500;
+				margin-bottom: 0.25rem;
+			}
+			& .search-result__calories {
+				font-weight: 500;
+				justify-self: flex-end;
+			}
+			& .search-result__serving-quantity {
+				margin-left: auto;
+			}
+		}
+	}
+	& .add-food__or {
+		text-align: center;
+		margin: 1.8rem 0 1.4rem 0;
+		&::before {
+			content: ' ';
+			position: absolute;
+			right: calc(50% + 1rem);
+			transform: translateY(0.6rem);
+			height: 1px;
+			background-color: $color-text__light;
+			width: 15%;
+			max-width: 6rem;
+		}
+		&::after {
+			content: ' ';
+			position: absolute;
+			left: calc(50% + 1rem);
+			transform: translateY(0.6rem);
+			height: 1px;
+			background-color: $color-text__light;
+			width: 15%;
+			max-width: 6rem;
+		}
+	}
+	& .add-food__custom {
+		width: auto;
+		padding: 1rem;
+		margin: 0;
+		box-shadow: none;
+		& input {
+			margin-bottom: 1rem;
+		}
+		& button {
+			margin-top: 1rem;
+			align-self: center;
+			width: 100%;
+			max-width: 20rem;
+			margin-bottom: 1rem;
+		}
+		& .add-food__custom__row {
+			display: grid;
+			align-items: center;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 2rem;
+			& input {
+				width: 100%;
+			}
+		}
+	}
+	& .search-type {
+		margin-bottom: 0.6rem;
+	}
+}
+
+/////////////////////////////
+/////////////////////////////
+// Today's food
+.current-food {
+	padding: 1rem;
+
+	margin-top: 1rem;
+	border-radius: $border-radius;
+	& h2 {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	& .current-food__header {
+		display: grid;
+		grid-template-columns: 1fr 0.5fr 0.8fr 0.2fr 0.2fr;
+
+		padding: 1rem;
+		& span {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+	& .current-food__list {
+		& li {
+			display: grid;
+			align-items: center;
+			grid-template-columns: 1fr 0.5fr 0.8fr 0.2fr 0.2fr;
+			padding: 1rem;
+			margin-bottom: 0.5rem;
+			background-color: white;
+			border-radius: $border-radius;
+			& p {
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	// edit
+	& .food__edit {
+		padding-right: 1rem;
+		font-size: 1.4rem;
+		&:hover,
+		&:active {
+			color: $color-stripe__purple;
+			cursor: pointer;
+		}
+	}
+	// delete
+	& .food__delete {
+		font-size: 1.4rem;
+		&:hover {
+			color: red;
+			cursor: pointer;
+		}
+	}
+}

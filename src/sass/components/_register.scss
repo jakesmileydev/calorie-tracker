@@ -1,0 +1,56 @@
+.register form {
+	margin: 0 auto;
+	max-width: 35rem;
+}
+
+aside {
+	@include respond-tablet__landscape {
+		padding: 2rem;
+		margin-right: 2rem;
+	}
+	& ul {
+		display: none;
+		@include respond-tablet__landscape {
+			display: block;
+		}
+	}
+	& .register-icon {
+		width: 2rem;
+		height: 2rem;
+		padding: 0.2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $color-stripe__purple;
+		border-radius: 50%;
+		color: white;
+	}
+	& li {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+	& h2 {
+		font-size: 1.2rem;
+		margin-bottom: 0.3rem;
+	}
+
+	& p {
+		margin-bottom: 1rem;
+	}
+}
+.grid-container {
+	margin: 0 1rem;
+	flex-grow: 1;
+}
+.grid-container {
+	@include respond-tablet__landscape {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+.register {
+	@include respond-tablet__landscape {
+		max-width: 70rem;
+	}
+}

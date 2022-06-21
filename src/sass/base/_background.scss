@@ -1,0 +1,51 @@
+.background {
+	position: fixed;
+	width: 200%;
+	height: calc(50% + 10rem);
+	background-color: $color-background__grey;
+	top: -10rem;
+	left: -50%;
+	z-index: -1;
+	transform: translateX(-3.75rem) rotate(-12deg);
+
+	& .stripe__purple__right {
+		position: absolute;
+		height: 3rem;
+		width: 100%;
+		background-color: $color-stripe__purple;
+		bottom: 0;
+		left: 65%;
+		transform: skew(-12deg);
+	}
+
+	& .stripe__purple__left {
+		position: absolute;
+		height: 3rem;
+		width: 100%;
+		background-color: $color-stripe__purple;
+		bottom: 0;
+		right: 65%;
+		transform: translateY(100%) skew(-12deg);
+	}
+
+	& .stripe__blue__left {
+		position: absolute;
+		height: 2rem;
+		width: 100%;
+		background-color: $color-stripe__blue;
+		bottom: 0;
+		right: 69%;
+		transform: translateY(1px) skew(-12deg);
+	}
+
+	& .stripe__overlap__left {
+		position: absolute;
+		height: 1rem;
+		width: 100%;
+
+		background-color: $color-stripe__overlap;
+		bottom: 0;
+		right: 69%;
+		transform: translateY(1rem) skew(-12deg) translateX(-5px);
+	}
+}

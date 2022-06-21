@@ -1,0 +1,27 @@
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 2.5rem;
+	margin: 0 1rem;
+	border-radius: $border-radius;
+	background-color: white;
+	box-shadow: $box-shadow__main;
+	-webkit-box-shadow: $box-shadow__main;
+	-moz-box-shadow: $box-shadow__main;
+	@include respond-tablet__portrait {
+		padding: 3.5rem 4rem;
+	}
+	& button {
+		width: 100%;
+		font-weight: 500;
+		margin-bottom: 2rem;
+	}
+	& h1 {
+		margin-bottom: 2rem;
+	}
+
+	& input {
+		margin-bottom: 2rem;
+	}
+}

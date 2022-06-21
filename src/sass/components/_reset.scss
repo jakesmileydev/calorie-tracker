@@ -1,0 +1,12 @@
+.reset form {
+  & p {
+    font-size: $font__small;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+  }
+  & a:link,
+  & a:visited {
+    text-align: center;
+  }
+}
